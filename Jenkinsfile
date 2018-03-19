@@ -12,17 +12,6 @@ pipeline {
       steps {
         sh 'echo Hello world'
       }
-      post {
-        always {
-          publishHTML([allowMissing: true,
-          alwaysLinkToLastBuild: true,
-          keepAll: true,
-          reportDir: 'vapi-service/build/reports/tests/test',
-          reportFiles: 'index.html',
-          reportName: 'Unit test report',
-          reportTitles: ''])
-        }
-      }
     }
   }
 }
