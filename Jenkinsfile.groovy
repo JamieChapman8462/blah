@@ -1,6 +1,5 @@
 pipeline {
   agent any
-  pipelineTriggers([[$class: 'GitHubPRTrigger', events: [[$class: 'GitHubPROpenEvent']], spec: '* * * * *', triggerMode: 'CRON']])
   stages {
     stage('checkout repository') {
       steps {
