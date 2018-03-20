@@ -10,7 +10,10 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'echo Hello world'
+        lock(resource: "lock_${env.NODE_NAME}_${env.BRANCH_NAME}", inversePrecedence: true) {
+        milestone 1
+        sh "echo Hello world"
+        }
       }
     }
   }
