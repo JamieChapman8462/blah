@@ -9,8 +9,8 @@ pipeline {
       }
     }
     stage('Build') {
-      steps {
-        lock(resource: "lock_${env.NODE_NAME}_${env.BRANCH_NAME}", inversePrecedence: true) {
+      lock(resource: "lock_${env.NODE_NAME}_${env.BRANCH_NAME}", inversePrecedence: true) {
+        steps {
           sleep 30
           milestone 1
           sh "echo Hello world"
